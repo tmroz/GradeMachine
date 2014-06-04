@@ -21,6 +21,9 @@
 		C4D9A2BE193F73F400E72128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9A2A0193F73F400E72128 /* UIKit.framework */; };
 		C4D9A2C6193F73F400E72128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4D9A2C4193F73F400E72128 /* InfoPlist.strings */; };
 		C4D9A2C8193F73F400E72128 /* GradeMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9A2C7193F73F400E72128 /* GradeMachineTests.m */; };
+		C4D9A2D3193F7A0000E72128 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9A2D2193F7A0000E72128 /* Course.m */; };
+		C4D9A2D6193F7C0A00E72128 /* Assignment.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9A2D5193F7C0A00E72128 /* Assignment.m */; };
+		C4D9A2D9193F7C3C00E72128 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9A2D8193F7C3C00E72128 /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		C4D9A2C3193F73F400E72128 /* GradeMachineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GradeMachineTests-Info.plist"; sourceTree = "<group>"; };
 		C4D9A2C5193F73F400E72128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4D9A2C7193F73F400E72128 /* GradeMachineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradeMachineTests.m; sourceTree = "<group>"; };
+		C4D9A2D1193F7A0000E72128 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		C4D9A2D2193F7A0000E72128 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		C4D9A2D4193F7C0A00E72128 /* Assignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assignment.h; sourceTree = "<group>"; };
+		C4D9A2D5193F7C0A00E72128 /* Assignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assignment.m; sourceTree = "<group>"; };
+		C4D9A2D7193F7C3C00E72128 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		C4D9A2D8193F7C3C00E72128 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +91,12 @@
 		C4D9A290193F73F400E72128 = {
 			isa = PBXGroup;
 			children = (
+				C4D9A2D1193F7A0000E72128 /* Course.h */,
+				C4D9A2D4193F7C0A00E72128 /* Assignment.h */,
+				C4D9A2D5193F7C0A00E72128 /* Assignment.m */,
+				C4D9A2D2193F7A0000E72128 /* Course.m */,
+				C4D9A2D7193F7C3C00E72128 /* Student.h */,
+				C4D9A2D8193F7C3C00E72128 /* Student.m */,
 				C4D9A2A2193F73F400E72128 /* GradeMachine */,
 				C4D9A2C1193F73F400E72128 /* GradeMachineTests */,
 				C4D9A29B193F73F400E72128 /* Frameworks */,
@@ -250,8 +265,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4D9A2B3193F73F400E72128 /* ViewController.m in Sources */,
+				C4D9A2D3193F7A0000E72128 /* Course.m in Sources */,
 				C4D9A2AD193F73F400E72128 /* AppDelegate.m in Sources */,
+				C4D9A2D6193F7C0A00E72128 /* Assignment.m in Sources */,
 				C4D9A2A9193F73F400E72128 /* main.m in Sources */,
+				C4D9A2D9193F7C3C00E72128 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
