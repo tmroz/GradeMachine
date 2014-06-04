@@ -59,7 +59,8 @@
         NSLog(@"you can edit now");
         //access add course viewcontroller to enter new data (title & period) with modal seque
         [self addItem];
-        [self.myCourseTableView reloadData];
+
+
     }
 
 }
@@ -80,13 +81,8 @@
 - (void)addItem
 {
     NSLog(@"give name");
-    // ItemInputController is a view controller used to display textFields, etc.
-    // whatever you need for your new item... You have to write it, name it however you want
-   // ItemInputController *itemInputController = [[ItemInputController alloc] init];
-
-    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:itemInputController];
-
-    //[[self navigationController] presentModalViewController:navigationController animated:YES];
+    
+    [self.myCourseTableView reloadData];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
