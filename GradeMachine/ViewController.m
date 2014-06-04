@@ -12,6 +12,7 @@
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myCourseTableView;
 
+
 @end
 
 @implementation ViewController
@@ -19,8 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Course *course1 = [[Course alloc] initWithTitle:@"Test Course" andPeriod:@"Period 1"];
-    self.courseList =[NSMutableArray arrayWithObjects: course1, nil];
+    Course *course1 = [[Course alloc] initWithTitle:@"AP Computer Science" andPeriod:@"Period 1"];
+    Course *course2 = [[Course alloc] initWithTitle:@"Add Course"];
+    Course *course3 = [[Course alloc] initWithTitle:@"Programming 1"];
+    self.courseList =[NSMutableArray arrayWithObjects: course1, course3, course2, nil];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
 }
@@ -46,36 +49,39 @@
     {
         // Delete the row from the data source
         [self.courseList removeObjectAtIndex:indexPath.row];
-        [tableView reloadData];
+        [self.myCourseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.myCourseTableView reloadData];
 
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
 
+        NSLog(@"you can edit now");
+        //access add course viewcontroller to enter new data (title & period) with modal seque
+        [self.myCourseTableView reloadData];
     }
 
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    /**if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            return NO;
-        }
-    }*/
-    return YES;
-    
+    if (indexPath.row == self.courseList.count - 1)
+    {
+        return UITableViewCellEditingStyleInsert;
+    }
+    else
+    {
+        return UITableViewCellEditingStyleDelete;
+    }
 }
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
     [super setEditing:editing animated:animated];
     [self.myCourseTableView setEditing:editing animated:YES];
-    if (editing) {
-        //addButton.enabled = NO;
-    } else {
-        //addButton.enabled = YES;
-    }
+
 }
+
 
 
 @end
