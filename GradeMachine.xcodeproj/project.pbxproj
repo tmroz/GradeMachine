@@ -456,6 +456,7 @@
 				C4D9A2CD193F73F400E72128 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4D9A2CE193F73F400E72128 /* Build configuration list for PBXNativeTarget "GradeMachineTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +465,7 @@
 				C4D9A2D0193F73F400E72128 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
