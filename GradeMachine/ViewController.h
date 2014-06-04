@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CourseDetailViewController.h"
 
 @interface ViewController : UIViewController
 @property NSMutableArray *courseList;

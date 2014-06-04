@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "Course.h"
+#import "Student.h"
+#import "CourseDetailViewController.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myCourseTableView;
@@ -25,6 +27,7 @@
     Course *course3 = [[Course alloc] initWithTitle:@"Programming 1"];
     self.courseList =[NSMutableArray arrayWithObjects: course1, course3, course2, nil];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 
 }
 
@@ -80,6 +83,14 @@
     [super setEditing:editing animated:animated];
     [self.myCourseTableView setEditing:editing animated:YES];
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *selectedIndexPath = self.myCourseTableView.indexPathForSelectedRow;
+    Course *selectedCourse = [self.courseList objectAtIndex:selectedIndexPath.row];
+    CourseDetailViewController *courseViewController = segue.destinationViewController;
+    courseViewController.theCoursePicked = selectedCourse;
 }
 
 
