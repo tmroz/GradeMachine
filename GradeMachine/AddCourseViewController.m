@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.addCourse = [[Course alloc]init];
 }
 
 - (IBAction)onAddCoursePressed:(id)sender
@@ -29,6 +29,12 @@
     self.addCourse.coursePeriod = self.addCoursePeriodField.text;
     [self.addCourseTitleField resignFirstResponder];
     [self.addCoursePeriodField resignFirstResponder];
+}
+
+- (Course *)addedCourse
+{
+    return self.addCourse;
+
 }
 
 

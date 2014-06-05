@@ -13,6 +13,7 @@
 @interface AddCourseViewController : UIViewController
 @property Course *addCourse;
 
+@property (nonatomic, strong)Course *addedCourse;
 
 
 @end
