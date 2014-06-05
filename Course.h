@@ -17,4 +17,7 @@
 -(Course *) initWithTitle: (NSString *) courseTitle;
 -(Course *) initWithTitle: (NSString *) courseTitle andPeriod: (NSString*) coursePeriod;
 
+-(NSDictionary *)encode;
+-(id) initWithDictionary:(NSDictionary *)theDictionary;
+
 @end
