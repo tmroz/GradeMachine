@@ -137,6 +137,8 @@
 				07A2B14B193FBD580074C85D /* CourseDetailViewController.m */,
 				C4D9A2B1193F73F400E72128 /* ViewController.h */,
 				C4D9A2B2193F73F400E72128 /* ViewController.m */,
+				C4124FB9193FA94E00CF0845 /* AddCourseViewController.h */,
+				C4124FBA193FA94E00CF0845 /* AddCourseViewController.m */,
 				C4D9A2B4193F73F400E72128 /* Images.xcassets */,
 				C4D9A2A3193F73F400E72128 /* Supporting Files */,
 			);
@@ -271,6 +273,7 @@
 			files = (
 				C4D9A2B3193F73F400E72128 /* ViewController.m in Sources */,
 				C4D9A2D3193F7A0000E72128 /* Course.m in Sources */,
+				C4124FBB193FA94E00CF0845 /* AddCourseViewController.m in Sources */,
 				C4D9A2AD193F73F400E72128 /* AppDelegate.m in Sources */,
 				07A2B14C193FBD580074C85D /* CourseDetailViewController.m in Sources */,
 				C4D9A2D6193F7C0A00E72128 /* Assignment.m in Sources */,

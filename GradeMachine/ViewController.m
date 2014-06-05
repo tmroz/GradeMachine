@@ -61,14 +61,18 @@
 
         NSLog(@"you can edit now");
         //access add course viewcontroller to enter new data (title & period) with modal seque
-        [self.myCourseTableView reloadData];
+        //[self performSegueWithIdentifier:@"addCourseSegue" sender:self];
+
+
+
+
     }
 
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == self.courseList.count - 1)
+    if (indexPath.row == self.courseList.count -1)
     {
         return UITableViewCellEditingStyleInsert;
     }
@@ -76,6 +80,16 @@
     {
         return UITableViewCellEditingStyleDelete;
     }
+}
+
+
+- (void)addItem
+{
+    NSLog(@"give name");
+    
+    [self performSegueWithIdentifier:@"addCourseSegue" sender:self];
+
+    //[self.myCourseTableView reloadData];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
