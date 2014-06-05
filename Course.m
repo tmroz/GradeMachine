@@ -23,5 +23,16 @@
     return self;
 }
 
+-(id)initWithDictionary:(NSDictionary *)theDictionary
+{
+    self = [super init];
+    self.courseTitle = theDictionary[@"name"];
+    self.coursePeriod = theDictionary[@"period"];
+    return self;
+}
+-(NSDictionary *)encode
+{
+    return @{@"name":self.courseTitle,@"period":self.coursePeriod};
+}
 
 @end

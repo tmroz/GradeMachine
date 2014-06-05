@@ -45,7 +45,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="DkM-49-hN6" kind="push" id="DtP-Tb-LQM"/>
+                                            <segue destination="DkM-49-hN6" kind="push" identifier="courseDetailsSegue" id="DtP-Tb-LQM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -57,7 +57,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="GradeMachineV2" id="8eS-5l-dse"/>
+                    <navigationItem key="navigationItem" title="GradeMachineV2" id="8eS-5l-dse">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="WJc-Sv-sR9">
+                            <connections>
+                                <segue destination="43c-iC-iHO" kind="modal" identifier="addCourseSegue" id="Aak-nf-IgP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myCourseTableView" destination="WUG-Er-YbF" id="51E-Ln-0ut"/>
                     </connections>
@@ -108,12 +114,21 @@
                                 <state key="normal" title="Add Course">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onAddCoursePressed:" destination="43c-iC-iHO" eventType="touchUpInside" id="CHw-CE-OYE"/>
+                                    <segue destination="olN-11-YUe" kind="unwind" unwindAction="unwindCourse:" id="kE5-bC-PFU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="addCoursePeriodField" destination="VwY-DN-UTY" id="MLq-D4-HQo"/>
+                        <outlet property="addCourseTitleField" destination="pbT-Pu-lGq" id="e7H-DC-dLV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFR-bP-gtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="olN-11-YUe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="524" y="712"/>
         </scene>

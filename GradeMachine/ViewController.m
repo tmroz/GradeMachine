@@ -10,6 +10,9 @@
 #import "Course.h"
 #import "Student.h"
 #import "CourseDetailViewController.h"
+#import "AddCourseViewController.h"
+
+#define LatestUpdatekey @"Latest Update"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myCourseTableView;
@@ -22,10 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Course *course1 = [[Course alloc] initWithTitle:@"AP Computer Science" andPeriod:@"Period 1"];
-    Course *course2 = [[Course alloc] initWithTitle:@"Add Course"];
-    Course *course3 = [[Course alloc] initWithTitle:@"Programming 1"];
-    self.courseList =[NSMutableArray arrayWithObjects: course1, course3, course2, nil];
+    //Course *course1 = [[Course alloc] initWithTitle:@"AP Computer Science" andPeriod:@"Period 1"];
+    //Course *course2 = [[Course alloc] initWithTitle:@"Programming 2"andPeriod:@"Period 2"];
+    //Course *course3 = [[Course alloc] initWithTitle:@"Programming 1"andPeriod:@"Period 3"];
+    [self load];
+   //self.courseList =[NSMutableArray arrayWithObjects: course1, course3, course2, nil];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 
@@ -41,6 +45,7 @@
     Course *selectedCourse= [self.courseList objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"courseCellID"];
     cell.textLabel.text = selectedCourse.courseTitle;
+    cell.detailTextLabel.text = selectedCourse.coursePeriod;
 
     return cell;
 }
@@ -55,15 +60,13 @@
         [self.myCourseTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.myCourseTableView reloadData];
 
+
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
 
-        NSLog(@"you can edit now");
-        //access add course viewcontroller to enter new data (title & period) with modal seque
-        //[self performSegueWithIdentifier:@"addCourseSegue" sender:self];
 
-
+        [self performSegueWithIdentifier:@"addCourseSegue" sender:self];
 
 
     }
@@ -83,30 +86,76 @@
 }
 
 
-- (void)addItem
-{
-    NSLog(@"give name");
-    
-    [self performSegueWithIdentifier:@"addCourseSegue" sender:self];
-
-    //[self.myCourseTableView reloadData];
-}
-
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
     [self.myCourseTableView setEditing:editing animated:YES];
+    [self save];
 
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *selectedIndexPath = self.myCourseTableView.indexPathForSelectedRow;
-    Course *selectedCourse = [self.courseList objectAtIndex:selectedIndexPath.row];
-    CourseDetailViewController *courseViewController = segue.destinationViewController;
-    courseViewController.theCoursePicked = selectedCourse;
+    if ([segue.identifier isEqualToString:@"courseDetailsSegue"]) {
+        NSIndexPath *selectedIndexPath = self.myCourseTableView.indexPathForSelectedRow;
+        Course *selectedCourse = [self.courseList objectAtIndex:selectedIndexPath.row];
+        CourseDetailViewController *courseViewController = segue.destinationViewController;
+        courseViewController.theCoursePicked = selectedCourse;
+    }
+    if([segue.identifier isEqualToString:@"addCousrseSegue"])
+    {
+        
+        
+    }
 }
 
+/**- (IBAction)unwindCourse:(UIStoryboardSegue *)segue
+{
+    AddCourseViewController *addvc = segue.sourceViewController;
+    [self.courseList addObject: addvc.addCourse];
+    [self.myCourseTableView reloadData];
+    NSLog(@"%@",addvc.addCourse.courseTitle);
+}*/
+
+- (void)save
+{
+
+    NSURL *plist = [[self documentsDirectory]URLByAppendingPathComponent:@"paste.plist"];
+    NSMutableArray *courseDictionaries = [NSMutableArray array];
+    for (Course *c in self.courseList)
+    {
+        [courseDictionaries  addObject:c.encode];
+    }
+    [courseDictionaries writeToURL:plist atomically:YES];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSDate date] forKey:LatestUpdatekey];
+    [defaults synchronize];
+    NSLog(@"saved");
+
+}
+
+- (void)load
+{
+    NSURL *plist = [[self documentsDirectory]URLByAppendingPathComponent:@"paste.plist"];
+    self.courseList = [NSMutableArray arrayWithContentsOfURL:plist];
+
+    NSMutableArray *tempCourses = [NSMutableArray array];
+
+    for (NSDictionary *d in self.courseList)
+    {
+        Course *c = [[Course alloc] initWithDictionary:d];
+        [tempCourses addObject: c];
+
+    }
+    self.courseList = tempCourses;
+   
+}
+
+-(NSURL *)documentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+}
 
 
 
