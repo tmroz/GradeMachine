@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Course.h"
+#import "AddCourseViewController.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myCourseTableView;
@@ -58,7 +59,9 @@
 
         NSLog(@"you can edit now");
         //access add course viewcontroller to enter new data (title & period) with modal seque
-        [self addItem];
+        //[self performSegueWithIdentifier:@"addCourseSegue" sender:self];
+
+
 
 
     }
@@ -67,7 +70,7 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == self.courseList.count - 1)
+    if (indexPath.row == self.courseList.count -1)
     {
         return UITableViewCellEditingStyleInsert;
     }
@@ -82,7 +85,9 @@
 {
     NSLog(@"give name");
     
-    [self.myCourseTableView reloadData];
+    [self performSegueWithIdentifier:@"addCourseSegue" sender:self];
+
+    //[self.myCourseTableView reloadData];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -91,6 +96,17 @@
     [self.myCourseTableView setEditing:editing animated:YES];
 
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([[segue identifier] isEqualToString:@"addCourseSegue"])
+    {
+        AddCourseViewController *aCoursevc = [segue destinationViewController];
+        aCoursevc.title = @"test";
+    }
+}
+
 
 
 
