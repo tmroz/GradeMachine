@@ -53,8 +53,18 @@
 {
     [super viewDidLoad];
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *selectedIndexPath =self.courseDetailView.indexPathForSelectedRow;
+    NSString *selectedOption = [self.assignmentList objectAtIndex:selectedIndexPath.row];
+    if([selectedOption isEqualToString:@"Assignments"])
+    {
+        //AddAssignmentViewController *assignmentViewController = segue.destinationViewController;
     
-    
+        //assignmentViewController.assignmentAdded.assignmentTitle = selectedAssignment;
+    }
 }
 
 

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Course.h"
+#import "AddAssignmentViewController.h"
 
 @interface CourseDetailViewController : UIViewController
 
 @property (nonatomic, strong) Course *theCoursePicked;
+@property NSMutableArray *assignmentList;
 
 @end

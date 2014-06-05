@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CourseDetailViewController.h"
+#import "AddAssignmentViewController.h"
 
 @interface ViewController : UIViewController
 @property NSMutableArray *courseList;
+
 @end
