@@ -7,6 +7,7 @@
 //
 
 #import "AddAssignmentViewController.h"
+#import "AssignmentTableViewCell.h"
 
 @interface AddAssignmentViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -16,6 +17,7 @@
 
 
 @property NSMutableArray *assignments;
+@property NSMutableArray *points;
 
 @end
 
@@ -28,7 +30,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssignmentCellID"];
+    AssignmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssignmentCellID"];
+    cell.assignmentNameLabel.text = [self.assignments objectAtIndex:indexPath.row];
+    cell.assignmentPointsLabel.text = [self.points objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -41,9 +45,12 @@
 - (IBAction)onSubmitButtonPressed:(id)sender
 {
     NSString *nextAssignment = self.addAssignmentTextField.text;
+    NSString *nextPoint = self.addPointsTextField.text;
     [self.assignments addObject:nextAssignment];
+    [self.points addObject:nextPoint];
     [self.addAssignmentTextField resignFirstResponder];
     self.addAssignmentTextField.text = @"";
+    self.addPointsTextField.text = @"";
     
     
     [self.addAssignmentTableView reloadData];
