@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Assignment.h"
+#import "Course.h"
 
 @interface AddAssignmentViewController : UIViewController
-
+@property (nonatomic, strong) Course *courseOpen;
 @property (nonatomic, strong) Assignment *assignmentAdded;
 @property (nonatomic, strong) Assignment *assignmentPicked;
 @property (weak, nonatomic) IBOutlet UITableView *addAssignmentTableView;
