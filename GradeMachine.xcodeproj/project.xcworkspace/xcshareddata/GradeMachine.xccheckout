@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F074D86D-CF30-4642-BEB1-CD4EEFC5C82D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GradeMachine</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>601DA3E5-1AD1-4D95-9021-7BFC8A5565FA</key>
+		<string>https://github.com/tmroz/GradeMachine.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GradeMachine.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>601DA3E5-1AD1-4D95-9021-7BFC8A5565FA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tmroz/GradeMachine.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>601DA3E5-1AD1-4D95-9021-7BFC8A5565FA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>601DA3E5-1AD1-4D95-9021-7BFC8A5565FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GradeMachine</string>
+		</dict>
+	</array>
+</dict>
+</plist>
