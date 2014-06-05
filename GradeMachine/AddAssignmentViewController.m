@@ -17,42 +17,50 @@
 
 
 @property NSMutableArray *assignments;
-@property NSMutableArray *points;
+
 
 @end
 
 @implementation AddAssignmentViewController
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    AssignmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssignmentCellID"];
-    cell.assignmentNameLabel.text = [self.assignments objectAtIndex:indexPath.row];
-    cell.assignmentPointsLabel.text = [self.points objectAtIndex:indexPath.row];
-    return cell;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    Assignment *one = [[Assignment alloc] initWithTitle:@"Worksheet 1" andPointValue:
+@"15"];
+    Assignment *two = [[Assignment alloc] initWithTitle:@"Worksheet 2" andPointValue:
+                       @"15"];
+    self.assignments =[NSMutableArray arrayWithObjects: one, two, nil];
+
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.assignments.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Assignment *selected= [self.assignments objectAtIndex:indexPath.row];
+    AssignmentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssignmentCellID"];
+    cell.assignmentNameLabel.text = selected.assignmentTitle;
+    cell.assignmentPointsLabel.text = selected.assignmentPointValue;
+    return cell;
+}
+
 
 - (IBAction)onSubmitButtonPressed:(id)sender
 {
-    NSString *nextAssignment = self.addAssignmentTextField.text;
-    NSString *nextPoint = self.addPointsTextField.text;
-    [self.assignments addObject:nextAssignment];
-    [self.points addObject:nextPoint];
+    Assignment *tempNewAssignment = [[Assignment alloc]init];
+    tempNewAssignment.assignmentTitle = self.addAssignmentTextField.text;
+    tempNewAssignment.assignmentPointValue = self.addPointsTextField.text;
+    
+    [self.assignments addObject:tempNewAssignment];
     [self.addAssignmentTextField resignFirstResponder];
+    [self.addPointsTextField resignFirstResponder];
     self.addAssignmentTextField.text = @"";
     self.addPointsTextField.text = @"";
-    
-    
     [self.addAssignmentTableView reloadData];
 }
 
