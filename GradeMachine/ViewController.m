@@ -16,7 +16,7 @@
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myCourseTableView;
-
+@property Course *addCourseElement;
 
 @end
 
@@ -24,12 +24,10 @@
 
 - (void)viewDidLoad
 {
+    self.addCourseElement = [[Course alloc]initWithTitle:@"Add a New Course" andPeriod:@"and Period"];
     [super viewDidLoad];
-    //Course *course1 = [[Course alloc] initWithTitle:@"AP Computer Science" andPeriod:@"Period 1"];
-    //Course *course2 = [[Course alloc] initWithTitle:@"Programming 2"andPeriod:@"Period 2"];
-    //Course *course3 = [[Course alloc] initWithTitle:@"Programming 1"andPeriod:@"Period 3"];
     [self load];
-   //self.courseList =[NSMutableArray arrayWithObjects: course1, course3, course2, nil];
+
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 
@@ -46,6 +44,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"courseCellID"];
     cell.textLabel.text = selectedCourse.courseTitle;
     cell.detailTextLabel.text = selectedCourse.coursePeriod;
+    cell.imageView.image = [UIImage imageNamed:@"214logo"];
 
     return cell;
 }
@@ -67,6 +66,7 @@
 
 
         [self performSegueWithIdentifier:@"addCourseSegue" sender:self];
+
 
 
     }
@@ -109,13 +109,18 @@
     }
 }
 
-/**- (IBAction)unwindCourse:(UIStoryboardSegue *)segue
+- (IBAction)unwindCourse:(UIStoryboardSegue *)segue
 {
     AddCourseViewController *addvc = segue.sourceViewController;
-    [self.courseList addObject: addvc.addCourse];
+
+    [self.courseList removeLastObject];
+    [self.courseList addObject: addvc.addedCourse];
+    [self.courseList addObject: self.addCourseElement];
+
     [self.myCourseTableView reloadData];
-    NSLog(@"%@",addvc.addCourse.courseTitle);
-}*/
+  
+    [self save];
+}
 
 - (void)save
 {
