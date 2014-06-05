@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07A2B14C193FBD580074C85D /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2B14B193FBD580074C85D /* CourseDetailViewController.m */; };
+		C45E998E1940CBA700420D79 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45E998D1940CBA700420D79 /* AddCourseViewController.m */; };
 		C4D9A29D193F73F400E72128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9A29C193F73F400E72128 /* Foundation.framework */; };
 		C4D9A29F193F73F400E72128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9A29E193F73F400E72128 /* CoreGraphics.framework */; };
 		C4D9A2A1193F73F400E72128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D9A2A0193F73F400E72128 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		07A2B14A193FBD580074C85D /* CourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailViewController.h; sourceTree = "<group>"; };
 		07A2B14B193FBD580074C85D /* CourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailViewController.m; sourceTree = "<group>"; };
+		C45E998C1940CBA700420D79 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
+		C45E998D1940CBA700420D79 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
 		C4D9A299193F73F400E72128 /* GradeMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D9A29C193F73F400E72128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4D9A29E193F73F400E72128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,12 +136,12 @@
 				C4D9A2AB193F73F400E72128 /* AppDelegate.h */,
 				C4D9A2AC193F73F400E72128 /* AppDelegate.m */,
 				C4D9A2AE193F73F400E72128 /* Main.storyboard */,
+				C45E998C1940CBA700420D79 /* AddCourseViewController.h */,
+				C45E998D1940CBA700420D79 /* AddCourseViewController.m */,
 				07A2B14A193FBD580074C85D /* CourseDetailViewController.h */,
 				07A2B14B193FBD580074C85D /* CourseDetailViewController.m */,
 				C4D9A2B1193F73F400E72128 /* ViewController.h */,
 				C4D9A2B2193F73F400E72128 /* ViewController.m */,
-				C4124FB9193FA94E00CF0845 /* AddCourseViewController.h */,
-				C4124FBA193FA94E00CF0845 /* AddCourseViewController.m */,
 				C4D9A2B4193F73F400E72128 /* Images.xcassets */,
 				C4D9A2A3193F73F400E72128 /* Supporting Files */,
 			);
@@ -273,10 +276,10 @@
 			files = (
 				C4D9A2B3193F73F400E72128 /* ViewController.m in Sources */,
 				C4D9A2D3193F7A0000E72128 /* Course.m in Sources */,
-				C4124FBB193FA94E00CF0845 /* AddCourseViewController.m in Sources */,
 				C4D9A2AD193F73F400E72128 /* AppDelegate.m in Sources */,
 				07A2B14C193FBD580074C85D /* CourseDetailViewController.m in Sources */,
 				C4D9A2D6193F7C0A00E72128 /* Assignment.m in Sources */,
+				C45E998E1940CBA700420D79 /* AddCourseViewController.m in Sources */,
 				C4D9A2A9193F73F400E72128 /* main.m in Sources */,
 				C4D9A2D9193F7C3C00E72128 /* Student.m in Sources */,
 			);
